@@ -14,7 +14,7 @@ class TypesTableSeeder extends Seeder
     public function run(): void
     {
         $clothingCategories = [
-            'tops', 't-shirts', 'shorts', 'jackets', 'hoodies', 'dresses', 'hats', 'leggings', 'socks'
+            'tops', 'bottoms', 'skirts', 'shoes', 'bags'
         ];
 
         foreach ($clothingCategories as $category) {

@@ -7,8 +7,23 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\OpenAIServiceController;
+use App\Http\Controllers\api\AuthController;
+
 
 Route::get('/ai', [ClothingController::class, 'processImages']);
+
+Route::controller(AuthController::class)->group(function () {
+    Route::post('login', 'login');
+    Route::post('register', 'register');
+    Route::post('logout', 'logout');
+    Route::post('refresh', 'refresh');
+});
+
+Route::middleware('auth:sanctum')->group(function() {
+	# all the routes that require authentication go here 
+});
+
+
 
 // Route::get('/ai', function() {
 

@@ -24,7 +24,7 @@ class ClothingController extends Controller
     public function processImages()
     {
         $imageURLs = $this->getImageUrls();
-        dd($imageURLs);
+        // dd($imageURLs);
         $responses = $imageURLs->map(function ($imageURL) {
             return OpenAI::chat()->create([
                 'model' => 'gpt-4-vision-preview',
@@ -49,7 +49,7 @@ class ClothingController extends Controller
                 ]
             ]); 
         });
-
+        dd($responses);
         return $responses;
     }
 }

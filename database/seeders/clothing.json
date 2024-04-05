@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Light Blue Hoodie",
+        "gender": "M",
+        "brand": "Jordan",
+        "colour": "Light Blue",
+        "type_id": 5,
+        "description": "Light blue hoodie with front pocket and drawstrings, featuring the Jordan logo on the chest.",
+        "image_path": "clothing_images/light_blue_hoodie.png"
+    },
+    {
+        "name": "Red Zip-up Hoodie",
+        "gender": "M",
+        "brand": "Jordan",
+        "colour": "Red",
+        "type_id": 5,
+        "description": "Red zip-up hoodie with a split kangaroo pocket and drawstrings, featuring a small Jordan logo on the left chest area.",
+        "image_path": "clothing_images/red_zip-up_hoodie.png"
+    },
+    {
+        "name": "Cream Pullover Hoodie",
+        "gender": "M",
+        "brand": "Jordan",
+        "colour": "Cream",
+        "type_id": 5,
+        "description": "Cream-colored pullover hoodie with a high neck and drawstrings, featuring the Jordan logo on the front.",
+        "image_path": "clothing_images/cream_pullover_hoodie.png"
+    },
+    {
+        "name": "Grey Zip-up Tech Hoodie",
+        "gender": "M",
+        "brand": "Nike",
+        "colour": "Grey",
+        "type_id": 5,
+        "description": "Grey zip-up tech hoodie with high neck, black zippered arm pocket, and contrasting black details. Features a Nike Swoosh logo on the right chest and a Tottenham Hotspur crest on the left.",
+        "image_path": "clothing_images/grey_zip-up_tech_hoodie.png"
+    },
+    {
+        "name": "Green Pullover Hoodie with AIR Graphic",
+        "gender": "M",
+        "brand": "Nike",
+        "colour": "Green",
+        "type_id": 5,
+        "description": "Green pullover hoodie with a kangaroo pocket and drawstrings, featuring a large 'AIR' graphic in a stylized font on the front.",
+        "image_path": "clothing_images/green_pullover_hoodie_with_AIR_graphic.png"
+    },
+    {
+        "name": "Grey Zip-up Hoodie",
+        "gender": "F",
+        "brand": "Nike",
+        "colour": "Grey",
+        "type_id": 5,
+        "description": "A fitted grey zip-up hoodie with black accents, side pockets, and the Nike logo on the left chest.",
+        "image_path": "clothing_images/grey_zip-up_hoodie.png"
+    },
+    {
+        "name": "Red Pullover Hoodie",
+        "gender": "F",
+        "brand": "Jordan",
+        "colour": "Red",
+        "type_id": 5,
+        "description": "A comfortable red pullover hoodie featuring a kangaroo pouch and the iconic Jordan logo on the upper left side.",
+        "image_path": "clothing_images/red_pullover_hoodie.png"
+    },
+    {
+        "name": "Green Crew Neck Sweatshirt",
+        "gender": "F",
+        "brand": "Jordan",
+        "colour": "Green",
+        "type_id": 1,
+        "description": "A casual green crew neck sweatshirt with contrasting black sleeves and the Jumpman logo.",
+        "image_path": "clothing_images/green_crew_neck_sweatshirt.png"
+    },
+    {
+        "name": "Yellow Pullover Hoodie",
+        "gender": "F",
+        "brand": "Adidas",
+        "colour": "Yellow",
+        "type_id": 5,
+        "description": "A vibrant yellow hoodie with a spacious hood and a relaxed fit, ideal for a sporty, casual look.",
+        "image_path": "clothing_images/yellow_pullover_hoodie.png"
+    },
+    {
+        "name": "Pink Pullover Hoodie",
+        "gender": "F",
+        "brand": "Nike",
+        "colour": "Pink",
+        "type_id": 5,
+        "description": "A pink hoodie with a soft texture, a heart-shaped logo on the back, and a cozy feel.",
+        "image_path": "clothing_images/pink_pullover_hoodie.png"
+    }
+]

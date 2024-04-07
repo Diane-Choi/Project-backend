@@ -11,6 +11,8 @@ use App\Http\Controllers\api\AuthController;
 
 
 Route::get('/ai', [ClothingController::class, 'processImages']);
+// routes/api.php
+// Route::post('/upload-image', [ClothingController::class, 'upload']);
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');

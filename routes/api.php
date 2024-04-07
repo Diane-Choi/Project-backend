@@ -13,7 +13,7 @@ use App\Http\Controllers\OpenAIServiceController;
 
 Route::get('/ai', [ClothingController::class, 'processImages']);
 
-Route::get('/types', [TypeController::class, 'index']);
+Route::get('/types', [TypeController::class, 'index'])->name('types.index');
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');

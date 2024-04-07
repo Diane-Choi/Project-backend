@@ -88,7 +88,6 @@ class ClothingController extends Controller
             dd('JSON decode error: ' . json_last_error_msg());
         }
 
-        // Assuming the JSON structure is as expected, access the elements
         $description = $data['description'] ?? 'No description found.';
         $index = $data['index'] ?? 'No index found.';
 
@@ -116,18 +115,6 @@ class ClothingController extends Controller
         // Remove the base path to get the relative path
         $relativePath = str_replace($basePathToRemove, '', $parsedUrl);
         
-        // Check if query parameter "?raw=true" should be considered
-        if (parse_url($url, PHP_URL_QUERY) === 'raw=true') {
-            // If needed, handle the case where "?raw=true" affects how you treat the path
-            // This example does not use it, but you may have use cases where it matters
-        }
-        
         return $relativePath;
     }
 }
- 
-// $image = ImageManager::imagick()->read($imagePath);
-//         $image->resize(256, 256);
-
-//         $image = file_get_contents($imagePath);
-//         $imageBase64 = base64_encode($image);

@@ -1,92 +1,234 @@
 [
     {
         "name": "Light Blue Hoodie",
-        "gender": "M",
         "brand": "Jordan",
         "colour": "Light Blue",
-        "type_id": 5,
+        "type_id": 1,
         "description": "Light blue hoodie with front pocket and drawstrings, featuring the Jordan logo on the chest.",
-        "image_path": "clothing_images/light_blue_hoodie.png"
+        "image_path": "clothing_images/tops/light_blue_hoodie.png"
     },
     {
         "name": "Red Zip-up Hoodie",
-        "gender": "M",
         "brand": "Jordan",
         "colour": "Red",
-        "type_id": 5,
+        "type_id": 1,
         "description": "Red zip-up hoodie with a split kangaroo pocket and drawstrings, featuring a small Jordan logo on the left chest area.",
-        "image_path": "clothing_images/red_zip-up_hoodie.png"
+        "image_path": "clothing_images/tops/red_zip-up_hoodie.png"
     },
     {
         "name": "Cream Pullover Hoodie",
-        "gender": "M",
         "brand": "Jordan",
         "colour": "Cream",
-        "type_id": 5,
+        "type_id": 1,
         "description": "Cream-colored pullover hoodie with a high neck and drawstrings, featuring the Jordan logo on the front.",
-        "image_path": "clothing_images/cream_pullover_hoodie.png"
+        "image_path": "clothing_images/tops/cream_pullover_hoodie.png"
     },
     {
         "name": "Grey Zip-up Tech Hoodie",
-        "gender": "M",
         "brand": "Nike",
         "colour": "Grey",
-        "type_id": 5,
+        "type_id": 1,
         "description": "Grey zip-up tech hoodie with high neck, black zippered arm pocket, and contrasting black details. Features a Nike Swoosh logo on the right chest and a Tottenham Hotspur crest on the left.",
-        "image_path": "clothing_images/grey_zip-up_tech_hoodie.png"
+        "image_path": "clothing_images/tops/grey_zip-up_tech_hoodie.png"
     },
     {
         "name": "Green Pullover Hoodie with AIR Graphic",
-        "gender": "M",
         "brand": "Nike",
         "colour": "Green",
-        "type_id": 5,
+        "type_id": 1,
         "description": "Green pullover hoodie with a kangaroo pocket and drawstrings, featuring a large 'AIR' graphic in a stylized font on the front.",
-        "image_path": "clothing_images/green_pullover_hoodie_with_AIR_graphic.png"
+        "image_path": "clothing_images/tops/green_pullover_hoodie_with_AIR_graphic.png"
     },
     {
         "name": "Grey Zip-up Hoodie",
-        "gender": "F",
         "brand": "Nike",
         "colour": "Grey",
-        "type_id": 5,
+        "type_id": 1,
         "description": "A fitted grey zip-up hoodie with black accents, side pockets, and the Nike logo on the left chest.",
-        "image_path": "clothing_images/grey_zip-up_hoodie.png"
+        "image_path": "clothing_images/tops/grey_zip-up_hoodie.png"
     },
     {
         "name": "Red Pullover Hoodie",
-        "gender": "F",
         "brand": "Jordan",
         "colour": "Red",
-        "type_id": 5,
+        "type_id": 1,
         "description": "A comfortable red pullover hoodie featuring a kangaroo pouch and the iconic Jordan logo on the upper left side.",
-        "image_path": "clothing_images/red_pullover_hoodie.png"
+        "image_path": "clothing_images/tops/red_pullover_hoodie.png"
     },
     {
         "name": "Green Crew Neck Sweatshirt",
-        "gender": "F",
         "brand": "Jordan",
         "colour": "Green",
         "type_id": 1,
         "description": "A casual green crew neck sweatshirt with contrasting black sleeves and the Jumpman logo.",
-        "image_path": "clothing_images/green_crew_neck_sweatshirt.png"
+        "image_path": "clothing_images/tops/green_crew_neck_sweatshirt.png"
     },
     {
         "name": "Yellow Pullover Hoodie",
-        "gender": "F",
         "brand": "Adidas",
         "colour": "Yellow",
-        "type_id": 5,
+        "type_id": 1,
         "description": "A vibrant yellow hoodie with a spacious hood and a relaxed fit, ideal for a sporty, casual look.",
-        "image_path": "clothing_images/yellow_pullover_hoodie.png"
+        "image_path": "clothing_images/tops/yellow_pullover_hoodie.png"
     },
     {
         "name": "Pink Pullover Hoodie",
-        "gender": "F",
         "brand": "Nike",
         "colour": "Pink",
-        "type_id": 5,
+        "type_id": 1,
         "description": "A pink hoodie with a soft texture, a heart-shaped logo on the back, and a cozy feel.",
-        "image_path": "clothing_images/pink_pullover_hoodie.png"
+        "image_path": "clothing_images/tops/pink_pullover_hoodie.png"
+    },
+    {
+        "name": "Black Denim Jeans",
+        "brand": "Unknown",
+        "colour": "Black",
+        "type_id": 2,
+        "description": "Black denim jeans with a straight fit, standard five-pocket design, and button closure. No distinct branding visible.",
+        "image_path": "clothing_images/bottoms/black_denim_jeans.png"
+    },
+    {
+        "name": "Light Blue Cuffed Jeans",
+        "brand": "Unknown",
+        "colour": "Light Blue",
+        "type_id": 2,
+        "description": "Light blue washed denim jeans featuring a high-rise fit, cuffed hem, and button fly. Classic five-pocket configuration without visible branding.",
+        "image_path": "clothing_images/bottoms/light_blue_cuffed_jeans.png"
+    },
+    {
+        "name": "Grey Wool Slacks",
+        "brand": "Unknown",
+        "colour": "Grey",
+        "type_id": 2,
+        "description": "Grey woolen slacks with a pleated front, wide-leg cut, and side adjusters. No belt loops, with a concealed front fastening.",
+        "image_path": "clothing_images/bottoms/grey_wool_slacks.png"
+    },
+    {
+        "name": "Oatmeal Cotton Joggers",
+        "brand": "Unknown",
+        "colour": "Oatmeal",
+        "type_id": 2,
+        "description": "Oatmeal-colored cotton joggers with an elastic waistband, drawstring, and ribbed ankle cuffs. Relaxed fit with no visible logos.",
+        "image_path": "clothing_images/bottoms/oatmeal_cotton_joggers.png"
+    },
+    {
+        "name": "White Denim Jeans",
+        "brand": "Unknown",
+        "colour": "White",
+        "type_id": 2,
+        "description": "White denim jeans with a mid-rise waist, button closure, and raw-edge hem. Standard five-pocket style, no obvious branding.",
+        "image_path": "clothing_images/bottoms/white_denim_jeans.png"
+    },
+    {
+        "name": "Flared Black Skirt",
+        "brand": "Unknown",
+        "colour": "Black",
+        "type_id": 3,
+        "description": "A flared black skirt with a textured pattern, elastic waistband, and a mid-thigh length cut.",
+        "image_path": "clothing_images/skirts/flared_black_skirt.png"
+    },
+    {
+        "name": "Denim Mini Skirt",
+        "brand": "Unknown",
+        "colour": "Blue",
+        "type_id": 3,
+        "description": "A blue denim mini skirt featuring a front zipper with button closure and a classic five-pocket design.",
+        "image_path": "clothing_images/skirts/denim_mini_skirt.png"
+    },
+    {
+        "name": "Floral Maxi Skirt",
+        "brand": "Unknown",
+        "colour": "Black with White Flowers",
+        "type_id": 3,
+        "description": "A flowy maxi skirt with a black background and small white floral print, featuring a comfortable waistband and a full-length drape.",
+        "image_path": "clothing_images/skirts/floral_maxi_skirt.png"
+    },
+    {
+        "name": "Pleated Grey Skirt",
+        "brand": "Unknown",
+        "colour": "Grey",
+        "type_id": 3,
+        "description": "A knee-length grey skirt with sharp pleats, a side zipper closure, and a smooth waistband.",
+        "image_path": "clothing_images/skirts/pleated_grey_skirt.png"
+    },
+    {
+        "name": "Tennis-style White Skirt",
+        "brand": "Unknown",
+        "colour": "White",
+        "type_id": 3,
+        "description": "A white tennis-style skirt with pleated detailing, an elastic waistband, and a built-in short underlayer.",
+        "image_path": "clothing_images/skirts/tennis_style_white_skirt.png"
+    },
+    {
+        "name": "Classic Black Low Top Sneakers",
+        "brand": "Adidas",
+        "colour": "Black",
+        "type_id": 4,
+        "description": "Black low top sneakers with white side stripes, lace-up front, and gold branding on the tongue.",
+        "image_path": "clothing_images/shoes/classic_black_sneakers.png"
+    },
+    {
+        "name": "High Top Canvas Sneakers",
+        "brand": "Converse",
+        "colour": "Black",
+        "type_id": 4,
+        "description": "High top black canvas sneakers with white laces, rubber sole, and a signature star ankle patch.",
+        "image_path": "clothing_images/shoes/high_top_sneakers.png"
+    },
+    {
+        "name": "Classic Grey Running Shoes",
+        "brand": "New Balance",
+        "colour": "Grey",
+        "type_id": 4,
+        "description": "Grey running shoes with a chunky sole, mesh upper panels, and reflective logo on the sides.",
+        "image_path": "clothing_images/shoes/grey_running_shoes.png"
+    },
+    {
+        "name": "Checkered Slip-On Sneakers",
+        "brand": "Vans",
+        "colour": "Black and White",
+        "type_id": 4,
+        "description": "Slip-on sneakers with a black and white checkered pattern, elastic side accents, and a padded collar.",
+        "image_path": "clothing_images/shoes/checkered_slip_on.png"
+    },
+    {
+        "name": "White Leather Low Top Sneakers",
+        "brand": "Nike",
+        "colour": "White",
+        "type_id": 4,
+        "description": "White leather low top sneakers with a perforated toe box, lace-up closure, and logo on the side and heel.",
+        "image_path": "clothing_images/shoes/white_leather_sneakers.png"
+    },
+    {
+        "name": "Canvas Backpack with Leather Straps",
+        "brand": "Herschel",
+        "colour": "Beige",
+        "type_id": 5,
+        "description": "Beige canvas backpack featuring tan leather straps, metallic buckles, a front pocket, and a branded patch.",
+        "image_path": "clothing_images/bags/beige_canvas_backpack.png"
+    },
+    {
+        "name": "Classic Black Backpack",
+        "brand": "Kanken",
+        "colour": "Black",
+        "type_id": 5,
+        "description": "Black backpack with a top handle, front pocket with a zipper, and a distinctive round logo patch.",
+        "image_path": "clothing_images/bags/classic_black_backpack.png"
+    },
+    {
+        "name": "Compact Belt Bag",
+        "brand": "Lululemon",
+        "colour": "Black",
+        "type_id": 5,
+        "description": "Compact black belt bag with a zippered closure, adjustable strap, and subtle logo on the front.",
+        "image_path": "clothing_images/bags/compact_belt_bag.png"
+    },
+    {
+        "name": "Canvas Tote Bag",
+        "brand": "Lululemon",
+        "colour": "White",
+        "type_id": 5,
+        "description": "White canvas tote bag with navy trim, a large circular Lululemon logo, and sturdy shoulder straps.",
+        "image_path": "clothing_images/bags/canvas_tote_bag.png"
     }
 ]

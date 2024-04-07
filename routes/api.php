@@ -1,16 +1,19 @@
 <?php
 
-use App\Http\Controllers\ClothingController;
 use OpenAI\Laravel\Facades\OpenAI;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\OpenAIServiceController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\ClothingController;
+use App\Http\Controllers\OpenAIServiceController;
 
 
 Route::get('/ai', [ClothingController::class, 'processImages']);
+
+Route::get('/types', [TypeController::class, 'index']);
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');

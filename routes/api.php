@@ -11,7 +11,7 @@ use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\OpenAIServiceController;
 
 
-Route::get('/ai', [ClothingController::class, 'processImages']);
+Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
 // routes/api.php
 // Route::post('/upload-image', [ClothingController::class, 'upload']);
 

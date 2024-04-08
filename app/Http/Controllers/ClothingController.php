@@ -49,7 +49,6 @@ class ClothingController extends Controller
                 'detail' => 'low'
             ]
             ];
-        // dd($prompt);
 
         // Add the prompt to pick the hoodie after all images
         $prompt[] = "
@@ -57,7 +56,7 @@ class ClothingController extends Controller
 
             Return the data as a JSON object with the following keys:
             - 'description': A brief description of the chosen clothing item, and why it's a good match.
-            - 'index': The index of the image that best matches the first image's outfit.
+            - 'index': The index of the image that best matches the first image's outfit. Note: The index starts from 0.
             If you are unsure about any values, set them to an empty string.
         ";
 
@@ -82,6 +81,8 @@ class ClothingController extends Controller
 
         $json = $response->choices[0]->message->content;
 
+        dd($json);
+
         // Directly decode the JSON string
         $data = json_decode($json, true);
 
@@ -96,7 +97,7 @@ class ClothingController extends Controller
         $fullURL = $imageURLs[intval($index)];
         $relativePath = $this->extractRelativePath($fullURL);
 
-        echo "Description: $description\n" . "Relative Path: $relativePath\n";
+        echo "Description: $description\n" . "Index: $index\n";
     }
 
     private function encodeImage($imagePath)

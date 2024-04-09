@@ -12,6 +12,16 @@ use OpenAI\Laravel\Facades\OpenAI;
 
 class ClothingController extends Controller
 {
+    public function index() {
+        $clothing = Clothing::all();
+        return response()->json($clothing);
+    }
+
+    public function show($clothingId) {
+        $clothing = Clothing::find($clothingId);
+        return response()->json($clothing);
+    }
+
     public function getImageUrls(int $type_id)
     {   
         // Get the clothing type

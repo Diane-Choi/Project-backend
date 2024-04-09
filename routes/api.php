@@ -11,6 +11,8 @@ use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OpenAIServiceController;
 
+Route::get('/clothing', [ClothingController::class, 'index']);
+Route::get('/clothing/{clothingId}', [ClothingController::class, 'show']);
 
 Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
 // routes/api.php

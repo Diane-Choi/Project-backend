@@ -168,7 +168,7 @@
         "image_path": "clothing_images/shoes/classic_black_sneakers.png"
     },
     {
-        "name": "High Top Canvas Sneakers",
+        "name": "High Top Sneakers",
         "brand": "Converse",
         "colour": "Black",
         "type_id": 4,
@@ -181,7 +181,7 @@
         "colour": "Grey",
         "type_id": 4,
         "description": "Grey running shoes with a chunky sole, mesh upper panels, and reflective logo on the sides.",
-        "image_path": "clothing_images/shoes/grey_running_shoes.png"
+        "image_path": "clothing_images/shoes/classic_grey_running_shoes.png"
     },
     {
         "name": "Checkered Slip-On Sneakers",
@@ -197,15 +197,15 @@
         "colour": "White",
         "type_id": 4,
         "description": "White leather low top sneakers with a perforated toe box, lace-up closure, and logo on the side and heel.",
-        "image_path": "clothing_images/shoes/white_leather_sneakers.png"
+        "image_path": "clothing_images/shoes/white_leather_low_top_sneakers.png"
     },
     {
-        "name": "Canvas Backpack with Leather Straps",
+        "name": "Beige Backpack with Leather Straps",
         "brand": "Herschel",
         "colour": "Beige",
         "type_id": 5,
         "description": "Beige canvas backpack featuring tan leather straps, metallic buckles, a front pocket, and a branded patch.",
-        "image_path": "clothing_images/bags/beige_canvas_backpack.png"
+        "image_path": "clothing_images/bags/beige_backpack_with_leather_straps.png"
     },
     {
         "name": "Classic Black Backpack",

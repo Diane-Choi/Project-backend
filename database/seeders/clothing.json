@@ -165,7 +165,7 @@
         "colour": "Black",
         "type_id": 4,
         "description": "Black low top sneakers with white side stripes, lace-up front, and gold branding on the tongue.",
-        "image_path": "clothing_images/shoes/classic_black_sneakers.png"
+        "image_path": "clothing_images/shoes/classic_black_low_top_sneakers.png"
     },
     {
         "name": "High Top Sneakers",
@@ -184,12 +184,12 @@
         "image_path": "clothing_images/shoes/classic_grey_running_shoes.png"
     },
     {
-        "name": "Checkered Slip-On Sneakers",
+        "name": "Checkered Slip On Sneakers",
         "brand": "Vans",
         "colour": "Black and White",
         "type_id": 4,
         "description": "Slip-on sneakers with a black and white checkered pattern, elastic side accents, and a padded collar.",
-        "image_path": "clothing_images/shoes/checkered_slip_on.png"
+        "image_path": "clothing_images/shoes/checkered_slip_on_sneakers.png"
     },
     {
         "name": "White Leather Low Top Sneakers",

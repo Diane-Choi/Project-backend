@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\ClothingController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OpenAIServiceController;
 
 
@@ -28,6 +29,10 @@ Route::middleware('auth:sanctum')->group(function() {
 	# all the routes that require authentication go here 
 });
 
+// Route::get('/favorites', [FavoriteController::class, 'index']);
+Route::get('/users/{user}/favorites', [FavoriteController::class, 'show']);
+Route::post('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'store']);
+Route::delete('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'destroy']);
 
 
 // Route::get('/ai', function() {

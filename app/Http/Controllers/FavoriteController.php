@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    // show all the favorite items from all users
+    // show all the items with the user who liked them
     public function index()
     {
         $clothings = Clothing::with('likedByUsers')->get();
         return response()->json($clothings);
     }
 
+    // show all the items liked by a specific user
     public function show($userId)
     {
         $user = User::find($userId);
@@ -73,5 +74,4 @@ class FavoriteController extends Controller
 
         return response()->json(['success' => 'Removed from favorites'], 200);
     }
-
 }

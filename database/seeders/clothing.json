@@ -1,59 +1,59 @@
 [
     {
-        "name": "Light Blue Hoodie",
-        "brand": "Jordan",
-        "colour": "Light Blue",
-        "type_id": 1,
-        "description": "Light blue hoodie with front pocket and drawstrings, featuring the Jordan logo on the chest.",
-        "image_path": "clothing_images/tops/light_blue_hoodie.png"
-    },
-    {
-        "name": "Red Zip-up Hoodie",
-        "brand": "Jordan",
-        "colour": "Red",
-        "type_id": 1,
-        "description": "Red zip-up hoodie with a split kangaroo pocket and drawstrings, featuring a small Jordan logo on the left chest area.",
-        "image_path": "clothing_images/tops/red_zip-up_hoodie.png"
-    },
-    {
-        "name": "Cream Pullover Hoodie",
-        "brand": "Jordan",
-        "colour": "Cream",
-        "type_id": 1,
-        "description": "Cream-colored pullover hoodie with a high neck and drawstrings, featuring the Jordan logo on the front.",
-        "image_path": "clothing_images/tops/cream_pullover_hoodie.png"
-    },
-    {
-        "name": "Grey Zip-up Tech Hoodie",
+        "name": "Pink Pullover Hoodie",
         "brand": "Nike",
+        "colour": "Pink",
+        "type_id": 1,
+        "description": "A pink hoodie with a soft texture, a heart-shaped logo on the back, and a cozy feel.",
+        "image_path": "clothing_images/tops/pink_pullover_hoodie.png"
+    },
+    {
+        "name": "Salmon Pink Programming Hoodie",
+        "brand": "Carrots",
+        "colour": "Salmon Pink",
+        "type_id": 1,
+        "description": "Salmon pink hoodie with a programming-themed graphic print on the front. It's made with a soft cotton blend fabric and features a front pouch pocket and adjustable drawstring hood.",
+        "image_path": "clothing_images/tops/salmon_pink_programming_hoodie.png"
+    },
+    {
+        "name": "Dessert Delight Layered Tee",
+        "brand": "Carrots",
+        "colour": "Black and White",
+        "type_id": 1,
+        "description": "White long sleeve tee with contrasting black sleeves and a printed image of a piece of cake on the front. The fabric is a comfortable cotton blend, and the shirt features a classic crew neck cut.",
+        "image_path": "clothing_images/tops/dessert_delight_layered_tee.png"
+    },
+    {
+        "name": "Ivory Classic Checked Flannel Shirt",
+        "brand": "ACOVER",
+        "colour": "Ivory and Blue",
+        "type_id": 1,
+        "description": "Ivory flannel shirt with a blue checked pattern. The material is a soft and warm flannel, suitable for cooler weather. It has a button-up front, a turn-down collar, and a single chest pocket.",
+        "image_path": "clothing_images/tops/ivory_classic_checked_flannel_shirt.png"
+    },
+    {
+        "name": "GAP Grey Hoodie",
+        "brand": "GAP",
         "colour": "Grey",
         "type_id": 1,
-        "description": "Grey zip-up tech hoodie with high neck, black zippered arm pocket, and contrasting black details. Features a Nike Swoosh logo on the right chest and a Tottenham Hotspur crest on the left.",
-        "image_path": "clothing_images/tops/grey_zip-up_tech_hoodie.png"
+        "description": "Grey hoodie with 'GAP' logo in black block letters across the chest. This hoodie is made from a soft, cotton-rich fabric with a fleece inner lining. It features a kangaroo pocket and an adjustable hood.",
+        "image_path": "clothing_images/tops/gap_grey_hoodie.png"
     },
     {
-        "name": "Green Pullover Hoodie with AIR Graphic",
-        "brand": "Nike",
-        "colour": "Green",
+        "name": "Ivory Striped Sweatshirt",
+        "brand": "Adidas",
+        "colour": "Ivory and Black",
         "type_id": 1,
-        "description": "Green pullover hoodie with a kangaroo pocket and drawstrings, featuring a large 'AIR' graphic in a stylized font on the front.",
-        "image_path": "clothing_images/tops/green_pullover_hoodie_with_AIR_graphic.png"
+        "description": "Ivory-colored sweatshirt with three black stripes down the sleeves. The texture is smooth with a soft interior for comfort. It includes ribbed cuffs and a crew neckline, with a small Adidas logo on the front.",
+        "image_path": "clothing_images/tops/ivory_striped_sweatshirt.png"
     },
     {
-        "name": "Grey Zip-up Hoodie",
-        "brand": "Nike",
-        "colour": "Grey",
+        "name": "Essentials Beige Knit Sweatshirt",
+        "brand": "Essentials",
+        "colour": "Beige",
         "type_id": 1,
-        "description": "A fitted grey zip-up hoodie with black accents, side pockets, and the Nike logo on the left chest.",
-        "image_path": "clothing_images/tops/grey_zip-up_hoodie.png"
-    },
-    {
-        "name": "Red Pullover Hoodie",
-        "brand": "Jordan",
-        "colour": "Red",
-        "type_id": 1,
-        "description": "A comfortable red pullover hoodie featuring a kangaroo pouch and the iconic Jordan logo on the upper left side.",
-        "image_path": "clothing_images/tops/red_pullover_hoodie.png"
+        "description": "This is a beige knit sweatshirt with a relaxed fit and ribbed trim, featuring the word 'ESSENTIALS' in bold, contrasting black lettering on the front.",
+        "image_path": "clothing_images/tops/essentials_beige_knit_sweatshirt.png"
     },
     {
         "name": "Green Crew Neck Sweatshirt",
@@ -64,20 +64,44 @@
         "image_path": "clothing_images/tops/green_crew_neck_sweatshirt.png"
     },
     {
-        "name": "Yellow Pullover Hoodie",
-        "brand": "Adidas",
-        "colour": "Yellow",
+        "name": "Jordan Cream Hoodie",
+        "brand": "Jordan",
+        "colour": "Cream",
         "type_id": 1,
-        "description": "A vibrant yellow hoodie with a spacious hood and a relaxed fit, ideal for a sporty, casual look.",
-        "image_path": "clothing_images/tops/yellow_pullover_hoodie.png"
+        "description": "Cream hoodie with a soft fleece inner, a kangaroo pocket, and a discreet Jumpman logo on the upper left side.",
+        "image_path": "clothing_images/tops/jordan_cream_hoodie.png"
     },
     {
-        "name": "Pink Pullover Hoodie",
-        "brand": "Nike",
-        "colour": "Pink",
+        "name": "Classic Black Button-Up Shirt",
+        "brand": "Polo Ralph Lauren",
+        "colour": "Black",
         "type_id": 1,
-        "description": "A pink hoodie with a soft texture, a heart-shaped logo on the back, and a cozy feel.",
-        "image_path": "clothing_images/tops/pink_pullover_hoodie.png"
+        "description": "A classic black button-up shirt made from premium cotton, featuring a sharp collar, adjustable cuffs, and the iconic red polo rider logo embroidered on the chest.",
+        "image_path": "clothing_images/tops/classic_black_button-up_shirt.png"
+    },
+    {
+        "name": "White Button-Up Shirt",
+        "brand": "Polo Ralph Lauren",
+        "colour": "White",
+        "type_id": 1,
+        "description": "A crisp white button-up shirt tailored from quality cotton, showcasing a neat button placket, a classic collar, and a signature polo rider logo on the chest.",
+        "image_path": "clothing_images/tops/white_button_up_shirt.png"
+    },
+    {
+        "name": "Beige Stripe-Adorned Sweatshirt",
+        "brand": "Adidas Originals",
+        "colour": "Beige and Black",
+        "type_id": 1,
+        "description": "This beige crew neck sweatshirt features the iconic Adidas three-stripe design on the sleeves and a small logo on the chest, crafted from a soft, comfortable fabric.",
+        "image_path": "clothing_images/tops/beige_stripe-adorned_sweatshirt.png"
+    },
+    {
+        "name": "Black Graphic T Shirt",
+        "brand": "Maison Kitsune",
+        "colour": "Black",
+        "type_id": 1,
+        "description": "Black cotton t-shirt featuring a unique fox character graphic, with the text 'Maison Kitsune' below.",
+        "image_path": "clothing_images/tops/black_graphic_t_shirt.png"
     },
     {
         "name": "Black Denim Jeans",

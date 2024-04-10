@@ -34,7 +34,7 @@ class ClothingController extends Controller
         // Get the clothing type
         $clothing_type = Type::find($type_id)->type;
 
-        $base_url = "https://github.com/Alfrey-Chan/Project-backend/blob/main/public/clothing_images/$clothing_type/";
+        $base_url = "https://github.com/Diane-Choi/Project-backend/blob/main/public/clothing_images/$clothing_type/";
         $url_end = '.png?raw=true';
 
         $clothing_items = Clothing::where('type_id', $type_id)->get();

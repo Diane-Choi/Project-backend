@@ -19,8 +19,13 @@ class ClothingController extends Controller
     }
 
     public function show($clothingId) {
-        $clothing = Clothing::find($clothingId);
-        return response()->json($clothing);
+        $clothing = Clothing::with('likedByUsers')->find($clothingId);
+        if ($clothing) {
+            $clothing->append('isFavorite');
+            return response()->json($clothing);
+        } else {
+            return response()->json(['message' => 'Clothing not found'], 404);
+        }
     }
 
     private function getClothingByType(int $type_id)

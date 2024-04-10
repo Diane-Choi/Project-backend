@@ -16,6 +16,11 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
+    public function index()
+    {
+        return User::all();
+    }
+
     public function login(Request $request) {
 
         $request->validate([

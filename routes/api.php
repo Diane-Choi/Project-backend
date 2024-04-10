@@ -11,11 +11,7 @@ use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OpenAIServiceController;
 
-Route::get('/clothing', [ClothingController::class, 'index']);
-Route::get('/clothing/{clothingId}', [ClothingController::class, 'show']);
-Route::get('/clothing/type/{typeId}', [ClothingController::class, 'showByType']);
-
-Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
+// Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
 // routes/api.php
 // Route::post('/upload-image', [ClothingController::class, 'upload']);
 
@@ -29,13 +25,20 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth:sanctum')->group(function() {
-	# all the routes that require authentication go here 
+    # all the routes that require authentication go here 
+    Route::get('/clothing', [ClothingController::class, 'index']);
+    Route::get('/clothing/{clothingId}', [ClothingController::class, 'show']);
+    Route::get('/clothing/type/{typeId}', [ClothingController::class, 'showByType']);
+
+    Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
+
+    Route::get('/favorites', [FavoriteController::class, 'index']);
+    Route::get('/users/{user}/favorites', [FavoriteController::class, 'show']);
+    Route::post('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'store']);
+    Route::delete('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'destroy']);
 });
 
 // Route::get('/favorites', [FavoriteController::class, 'index']);
-Route::get('/users/{user}/favorites', [FavoriteController::class, 'show']);
-Route::post('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'store']);
-Route::delete('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'destroy']);
 
 
 // Route::get('/ai', function() {

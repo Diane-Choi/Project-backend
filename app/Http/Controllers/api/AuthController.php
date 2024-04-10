@@ -31,12 +31,12 @@ class AuthController extends Controller
 
         if (auth()->attempt($credentials)) {
             $user = Auth::user();
-            $token = JWTAuth::fromUser($user);
+            // $token = JWTAuth::fromUser($user);
             
             // $token = $user->createToken('Super Safe Token')->plainTextToken;
             // $token = $request->user()->createToken($request->token_name);
             // $user = JWTAuth::fromUser($user);
-            // $token = $request->user()->createToken('Super Safe Token')->plainTextToken;
+            $token = $request->user()->createToken('Super Safe Token')->plainTextToken;
             return response()->json([
                 'status' => 'success',
                 'user' => $user,

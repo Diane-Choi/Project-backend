@@ -21,6 +21,7 @@ class ClothingController extends Controller
     public function show($clothingId) {
         $clothing = Clothing::with('likedByUsers')->find($clothingId);
         if ($clothing) {
+            $clothing->append('type');
             $clothing->append('isFavorite');
             return response()->json($clothing);
         } else {

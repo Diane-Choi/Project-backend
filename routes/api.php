@@ -11,7 +11,7 @@ use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OpenAIServiceController;
 
-// Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
+Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
 // routes/api.php
 // Route::post('/upload-image', [ClothingController::class, 'upload']);
 
@@ -29,8 +29,6 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/clothing', [ClothingController::class, 'index']);
     Route::get('/clothing/{clothingId}', [ClothingController::class, 'show']);
     Route::get('/clothing/type/{typeId}', [ClothingController::class, 'showByType']);
-
-    Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
 
     Route::get('/favorites', [FavoriteController::class, 'index']);
     Route::get('/users/{user}/favorites', [FavoriteController::class, 'show']);

@@ -38,7 +38,7 @@ Route::delete('/users/{user}/favorites/{clothing}', [FavoriteController::class, 
 
 
 // Route::get('/ai', function() {
-
+//
 //     $baseURL = 'https://github.com/Alfrey-Chan/Project-backend/blob/main/public/clothing_images/';
 //     $imageURL = "{$baseURL}cream_pullover_hoodie.png?raw=true";
     

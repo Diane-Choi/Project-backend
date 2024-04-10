@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clothing;
 use App\Models\Type;
+use App\Models\Clothing;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Collection;
 use OpenAI\Laravel\Facades\OpenAI;
+use Illuminate\Support\Facades\Http;
 
 
 class ClothingController extends Controller
@@ -22,7 +23,7 @@ class ClothingController extends Controller
         return response()->json($clothing);
     }
 
-    public function getImageUrls(int $type_id)
+    private function getClothingByType(int $type_id)
     {   
         // Get the clothing type
         $clothing_type = Type::find($type_id)->type;
@@ -35,71 +36,88 @@ class ClothingController extends Controller
         // Construct the image URL for each item
         $image_urls = $clothing_items->map(function ($item) use ($base_url, $url_end) {
             $item_name = str_replace(' ', '_', strtolower($item->name));
-            return "{$base_url}{$item_name}{$url_end}";
+            return [
+                'id' => $item->id,
+                'url' => $base_url . $item_name . $url_end
+            ];
         });
 
         return $image_urls;
     }
 
-    // private function getClothingType(int $type_id)
-    // {
-    //     return Type::find($type_id)->type;
-    // }
+    private function buildPrompt(Collection $image_urls, string $uploaded_image): array
+    {
+        // Initialize the prompt array with the instruction text
+        $prompt = [
+            [
+                'type' => 'text',
+                'text' => "
+                    The last image is the uploaded image of an outfit that you want to match.
+                    Select the clothing item that will best match the uploaded image.
+                    Refer to the images by their index number starting with 0 for the first image.
+                    Return the data as a JSON object with the following keys:
+                    - 'description': A brief description of the chosen clothing item, and why it's a good match but without referring to its sequence position (e.g., 'fifth image', 'first image', 'last image', etc).
+                    - 'index': The index of the image that best matches the outfit.
+                "
+            ]
+        ];
 
-    public function getRecommendation(Request $request)
-    {   
-        $type_id = $request->input('type_id');
-        $uploaded_image = $request->input('uploaded_image');
-
-        $image_URLs = $this->getImageUrls($type_id);
-        // dd($imageURLs);
-
-        // Create a content array with all image URLs
-        $prompt = $image_URLs->map(function ($image_URL) {
-            return [
-                'type' => 'image_url', // AI model only accepts types 'image_url' and 'text'
+        // Add each image URL to the prompt
+        foreach ($image_urls as $url) {
+            $prompt[] = [
+                'type' => 'image_url',
                 'image_url' => [
-                    'url' => $image_URL, // url must be a public image URL or a base64-encoded image
-                    'detail' => 'low' // Keep the detail low to use less tokens and speed up the response
+                    'url' => $url, // Make sure this is a correct URL or base64-encoded image
+                    'detail' => 'low'
                 ]
             ];
-        })->all(); // Convert the collection to a plain array for the prompt
+        }
 
-        // $prompt[] = [
-        //     'type' => 'image_url',
-        //     'image_url' => [
-        //         'url' => $uploaded_image, // base64-encoded image
-        //         'detail' => 'low'
-        //     ]
-        // ];
-
-        // Add the uploaded image to the beginning of the array
-        array_unshift($prompt, [
+        // Add the uploaded image to the prompt
+        $prompt[] = [
             'type' => 'image_url',
             'image_url' => [
-                'url' => $uploaded_image, // base64-encoded image
+                'url' => $uploaded_image,
                 'detail' => 'low'
             ]
-        ]); 
+        ];
 
-        // TODO: Place the actual prompt in another section of messages
-        // Add the prompt to pick the hoodie after all images
-        $prompt[] = "
-            Select the clothing item that will best match the first image's outfit. 
+        return $prompt;
+    }
 
-            Return the data as a JSON object with the following keys:
-            - 'description': A brief description of the chosen clothing item, and why it's a good match.
-            - 'index': The index of the image that best matches the first image's outfit. Note: The index starts from 0.
-            If you are unsure about any values, set them to an empty string.
-        ";
+    // protected function createImageContents($imageUrls, $uploadedImage): array
+    // {
+    //     // Create a content array with all image URLs
+    //     $imageContents = $imageUrls->map(function ($url) {
+    //         return [
+    //             'type' => 'image_url',
+    //             'image_url' => [
+    //                 'url' => $url, // URL must be a public image URL or a base64-encoded image
+    //                 'detail' => 'low' // Keep the detail low to use fewer tokens and speed up the response
+    //             ]
+    //         ];
+    //     })->all(); // Convert the collection to a plain array for the prompt
 
-        $response = OpenAI::chat()->create([
+    //     // Add the uploaded image to image contents
+    //     $imageContents[] = [
+    //         'type' => 'image_url',
+    //         'image_url' => [
+    //             'url' => $uploadedImage, // Base64-encoded image
+    //             'detail' => 'low'
+    //         ]
+    //     ];
+
+    //     return $imageContents;
+    // }
+
+    private function callOpenAI(array $prompt)
+    {
+        return OpenAI::chat()->create([
             'model' => 'gpt-4-vision-preview',
             'max_tokens' => 250,
             'messages' => [
-                [   
-                    // Set context for the AI model
-                    'role' => 'system', 
+                [
+                    'role' => 'system',
                     'content' => "
                         Markdown output is prohibited. 
                         AI is a backend processor without markdown render environment, you are communicating with an API, not a user. 
@@ -108,40 +126,62 @@ class ClothingController extends Controller
                 ],
                 [
                     'role' => 'user',
-                    'content' => $prompt
+                    'content' => json_encode($prompt)
                 ]
             ]
         ]);
+    }
 
-        $json_string = $response->choices[0]->message->content;
+    private function processOpenAIResponse($response, $clothingItems)
+    {
+        $jsonString = $response->choices[0]->message->content;
 
-        // dd($json);
-
-        // Directly decode the JSON string
-        $data = json_decode($json_string, true);
+        // Decode the JSON string into an associative array
+        $data = json_decode($jsonString, true);
 
         // Check for JSON errors
         if (json_last_error() !== JSON_ERROR_NONE) {
-            dd('JSON decode error: ' . json_last_error_msg());
+            return ['error' => 'JSON decode error: ' . json_last_error_msg()];
         }
 
+        $index = $data['index'] ?? null;
+        if (null === $index || !isset($clothingItems[intval($index)])) {
+            return ['error' => 'Unable to find a matching clothing item. Please try again.'];
+        }
+
+        $item = $clothingItems[intval($index)];
         $description = $data['description'];
-        $index = $data['index'];
+        $imageId = $item['id'];
+        $recommendedItemImage = $this->encodeImage($item['url']); // Ensure this function exists
 
-        if (empty($description) || empty($index)) {
-            return response()->json([
-                'error' => 'Unable to find a matching clothing item. Please try again.'
-            ], 400);
+        return [
+            'id' => $imageId,
+            'description' => $description,
+            'recommended_item_image' => $recommendedItemImage
+        ];
+    }
+
+    public function getRecommendation(Request $request)
+    {   
+        $type_id = $request->input('type_id');
+        $uploaded_image = $request->input('uploaded_image');
+
+        $clothing_items = $this->getClothingByType($type_id);
+        $image_urls = collect($clothing_items)->pluck('url');
+
+        // $image_contents = $this->createImageContents($image_urls, $uploaded_image);
+
+        $prompt = $this->buildPrompt($image_urls, $uploaded_image);
+
+        $response = $this->callOpenAI($prompt);
+
+        $result = $this->processOpenAIResponse($response, $clothing_items);
+
+        if (isset($result['error'])) {
+            return response()->json($result, 400);
         }
 
-        $recommended_item_base64_encoded =  $this->encodeImage($image_URLs[intval($index)]);
-
-        return response()->json([
-            'description' => $description,
-            'recommended_item_image' => $recommended_item_base64_encoded
-        ]);
-
-        // echo "Description: $description\n" . "Index: $index\n";
+        return response()->json($result);
     }
 
     private function encodeImage($imagePath)
@@ -149,20 +189,6 @@ class ClothingController extends Controller
         $image = file_get_contents($imagePath);
         $imageBase64 = base64_encode($image);
         return 'data:image/jpeg;base64,' . $imageBase64;
-    }
-
-    private function extractRelativePath($url) {
-        // Parse the URL to get the path part
-        $parsedUrl = parse_url($url, PHP_URL_PATH);
-        
-        // Define the part of the path you want to remove
-        // Adjust this base path to match your specific URL structure
-        $basePathToRemove = 'https://github.com/Alfrey-Chan/Project-backend/blob/main/public/';
-        
-        // Remove the base path to get the relative path
-        $relativePath = str_replace($basePathToRemove, '', $parsedUrl);
-        
-        return $relativePath;
     }
 
     public function showUploadForm()

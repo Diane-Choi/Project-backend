@@ -234,6 +234,10 @@ class ClothingController extends Controller
         // Return the responses
         return $responses;
     }
-    
-    
+
+    public function showByType($typeId)
+    {
+        $clothings = Clothing::where('type_id', $typeId)->get();
+        return response()->json($clothings);
+    }
 }

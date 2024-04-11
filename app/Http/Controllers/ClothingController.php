@@ -146,7 +146,7 @@ class ClothingController extends Controller
         $type_id = $request->input('type_id');
         $uploaded_image = $request->input('uploaded_image');
 
-        $clothing_items = $this->getClothingByType($type_id);
+        $clothing_items = $this->getClothingByType($type_id); // for each item, get its ID and image url
         $image_urls = collect($clothing_items)->pluck('url');
 
         $prompt = $this->buildPrompt($image_urls, $uploaded_image);

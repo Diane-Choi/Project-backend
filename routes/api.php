@@ -12,8 +12,6 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OpenAIServiceController;
 
 Route::post('/recommendation', [ClothingController::class, 'getRecommendation'])->name('clothing.recommendation');
-// routes/api.php
-// Route::post('/upload-image', [ClothingController::class, 'upload']);
 
 Route::get('/types', [TypeController::class, 'index'])->name('types.index');
 
@@ -35,39 +33,3 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'store']);
     Route::delete('/users/{user}/favorites/{clothing}', [FavoriteController::class, 'destroy']);
 });
-
-// Route::get('/favorites', [FavoriteController::class, 'index']);
-
-
-// Route::get('/ai', function() {
-//
-//     $baseURL = 'https://github.com/Alfrey-Chan/Project-backend/blob/main/public/clothing_images/';
-//     $imageURL = "{$baseURL}cream_pullover_hoodie.png?raw=true";
-    
-
-//     $response = OpenAI::chat()->create([
-//         'model' => 'gpt-4-vision-preview',
-//         'max_tokens' => 100,
-//         'messages' => [
-//             [
-//                 'role' => 'user',
-//                 'content' => [
-//                     [
-//                         'type' => 'image_url',
-//                         'image_url' => [
-//                             'url' => $imageURL,
-//                             'detail' => 'low'
-//                         ]
-//                     ]
-//                 ]
-//             ],
-//             [
-//                 'role' => 'user',
-//                 'content' => 'Describe the image for me in one sentence'
-//             ]
-//         ]
-//     ]); 
-
-//     echo $response->choices[0]->message->content;
-// }); 
-    

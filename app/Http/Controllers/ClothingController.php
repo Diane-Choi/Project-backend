@@ -174,70 +174,70 @@ class ClothingController extends Controller
         return view('upload');
     }
 
-    public function upload(Request $request)
-    {
-        // Only allow uploaded images to be 25KB or less, or else request tokens will exceed the limit
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:25',
-        ]);
+    // public function upload(Request $request)
+    // {
+    //     // Only allow uploaded images to be 25KB or less, or else request tokens will exceed the limit
+    //     $request->validate([
+    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:25',
+    //     ]);
     
-        // Retrieve the uploaded image file
-        $userImage = $request->file('image');
+    //     // Retrieve the uploaded image file
+    //     $userImage = $request->file('image');
     
-        // Get image URLs of clothing items
-        $baseURL = 'https://github.com/Alfrey-Chan/Project-backend/blob/main/public/clothing_images/';
-        $clothings = Clothing::all();
-        $imageURLs = $clothings->map(function ($clothing) use ($baseURL) {
-            return $baseURL . $clothing->image_path; // Adjust this based on your actual image path in the Clothing model
-        });
+    //     // Get image URLs of clothing items
+    //     $baseURL = 'https://github.com/Alfrey-Chan/Project-backend/blob/main/public/clothing_images/';
+    //     $clothings = Clothing::all();
+    //     $imageURLs = $clothings->map(function ($clothing) use ($baseURL) {
+    //         return $baseURL . $clothing->image_path; // Adjust this based on your actual image path in the Clothing model
+    //     });
     
-        // Create an array to store OpenAI responses
-        $responses = [];
+    //     // Create an array to store OpenAI responses
+    //     $responses = [];
     
-        // Prompt OpenAI to compare each image URL with the uploaded image
-        foreach ($imageURLs as $imageURL) {
-            $response = OpenAI::chat()->create([
-                'model' => 'clip',
-                'max_tokens' => 100,
-                'messages' => [
-                    [
-                        'role' => 'user',
-                        'content' => 'Based on the provided image and this clothing item, how well do they match? Choose one image_url and explain why it matches well.'
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => [
-                            [
-                                'type' => 'image_url',
-                                'image_url' => $imageURL,
-                            ]
-                        ]
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => 'Explanation why it matches well with the uploaded image.'
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => [
-                            [
-                                'type' => 'image_file',
-                                'image_file' => [
-                                    'url' => $userImage->getPathname(),
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]);
+    //     // Prompt OpenAI to compare each image URL with the uploaded image
+    //     foreach ($imageURLs as $imageURL) {
+    //         $response = OpenAI::chat()->create([
+    //             'model' => 'clip',
+    //             'max_tokens' => 100,
+    //             'messages' => [
+    //                 [
+    //                     'role' => 'user',
+    //                     'content' => 'Based on the provided image and this clothing item, how well do they match? Choose one image_url and explain why it matches well.'
+    //                 ],
+    //                 [
+    //                     'role' => 'user',
+    //                     'content' => [
+    //                         [
+    //                             'type' => 'image_url',
+    //                             'image_url' => $imageURL,
+    //                         ]
+    //                     ]
+    //                 ],
+    //                 [
+    //                     'role' => 'user',
+    //                     'content' => 'Explanation why it matches well with the uploaded image.'
+    //                 ],
+    //                 [
+    //                     'role' => 'user',
+    //                     'content' => [
+    //                         [
+    //                             'type' => 'image_file',
+    //                             'image_file' => [
+    //                                 'url' => $userImage->getPathname(),
+    //                             ]
+    //                         ]
+    //                     ]
+    //                 ]
+    //             ]
+    //         ]);
             
-            // Store the response in the array
-            $responses[] = $response;
-        }
+    //         // Store the response in the array
+    //         $responses[] = $response;
+    //     }
     
-        // Return the responses
-        return $responses;
-    }
+    //     // Return the responses
+    //     return $responses;
+    // }
 
     public function showByType($typeId)
     {

@@ -53,7 +53,6 @@ class ClothingController extends Controller
 
     private function buildPrompt(Collection $image_urls, string $uploaded_image): array
     {
-        // Initialize the prompt array with the instruction text
         $prompt = [
             [
                 'type' => 'text',
@@ -90,31 +89,6 @@ class ClothingController extends Controller
 
         return $prompt;
     }
-
-    // protected function createImageContents($imageUrls, $uploadedImage): array
-    // {
-    //     // Create a content array with all image URLs
-    //     $imageContents = $imageUrls->map(function ($url) {
-    //         return [
-    //             'type' => 'image_url',
-    //             'image_url' => [
-    //                 'url' => $url, // URL must be a public image URL or a base64-encoded image
-    //                 'detail' => 'low' // Keep the detail low to use fewer tokens and speed up the response
-    //             ]
-    //         ];
-    //     })->all(); // Convert the collection to a plain array for the prompt
-
-    //     // Add the uploaded image to image contents
-    //     $imageContents[] = [
-    //         'type' => 'image_url',
-    //         'image_url' => [
-    //             'url' => $uploadedImage, // Base64-encoded image
-    //             'detail' => 'low'
-    //         ]
-    //     ];
-
-    //     return $imageContents;
-    // }
 
     private function callOpenAI(array $prompt)
     {
@@ -155,10 +129,15 @@ class ClothingController extends Controller
             return ['error' => 'Unable to find a matching clothing item. Please try again.'];
         }
 
-        $item = $clothingItems[intval($index)];
-        $description = $data['description'];
-        $imageId = $item['id'];
-        $recommendedItemImage = $this->encodeImage($item['url']); // Ensure this function exists
+        $index = $data['index'] ?? null;
+        $description = $data['description'] ?? null;
+        $imageId = $chosen_item['id'] ?? null;
+        if (null === $index || null === $description || null === $imageId) {
+            return ['error' => 'Unable to find a matching clothing item. Please try again.'];
+        }
+
+        $chosen_item = $clothingItems[intval($index)];
+        $recommendedItemImage = $this->encodeImage($chosen_item['url']); 
 
         return [
             'id' => $imageId,
@@ -174,8 +153,6 @@ class ClothingController extends Controller
 
         $clothing_items = $this->getClothingByType($type_id);
         $image_urls = collect($clothing_items)->pluck('url');
-
-        // $image_contents = $this->createImageContents($image_urls, $uploaded_image);
 
         $prompt = $this->buildPrompt($image_urls, $uploaded_image);
 
@@ -204,9 +181,9 @@ class ClothingController extends Controller
 
     public function upload(Request $request)
     {
-        // Validate the uploaded image file
+        // Only allow uploaded images to be 25KB or less, or else request tokens will exceed the limit
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:25',
         ]);
     
         // Retrieve the uploaded image file

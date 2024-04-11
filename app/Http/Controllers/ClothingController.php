@@ -124,11 +124,6 @@ class ClothingController extends Controller
             return ['error' => 'JSON decode error: ' . json_last_error_msg()];
         }
 
-        // $index = $data['index'] ?? null;
-        // if (null === $index || !isset($clothingItems[intval($index)])) {
-        //     return ['error' => 'Unable to find a matching clothing item. Please try again.'];
-        // }
-
         $index = $data['index'] ?? null;
         $description = $data['description'] ?? null;
         $imageId = $chosen_item['id'] ?? null;

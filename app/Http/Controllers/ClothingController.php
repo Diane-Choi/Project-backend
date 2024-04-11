@@ -125,14 +125,14 @@ class ClothingController extends Controller
         }
 
         $index = $data['index'] ?? null;
-        $description = $data['description'] ?? null;
-        $imageId = $chosen_item['id'] ?? null;
-        if (null === $index || null === $description || null === $imageId) {
+        if (null === $index || !isset($clothingItems[intval($index)])) {
             return ['error' => 'Unable to find a matching clothing item. Please try again.'];
         }
 
-        $chosen_item = $clothingItems[intval($index)];
-        $recommendedItemImage = $this->encodeImage($chosen_item['url']); 
+        $item = $clothingItems[intval($index)];
+        $description = $data['description'];
+        $imageId = $item['id'];
+        $recommendedItemImage = $this->encodeImage($item['url']);
 
         return [
             'id' => $imageId,

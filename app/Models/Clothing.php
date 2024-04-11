@@ -17,10 +17,10 @@ class Clothing extends Model
         return $this->belongsToMany(User::class, 'favorites');
     }
 
-    public function getTypeAttribute() 
-    {
-        return $this->type()->first()->type;
-    }
+    // public function getTypeAttribute() 
+    // {
+    //     return $this->type()->first()->type;
+    // }
 
     public function getIsFavoriteAttribute()
     {

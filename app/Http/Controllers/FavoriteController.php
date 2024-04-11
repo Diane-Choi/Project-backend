@@ -28,7 +28,7 @@ class FavoriteController extends Controller
         return response()->json($user->favoriteClothings);
     }
 
-    public function store(Request $request, $userId, $clothingId)
+    public function store($userId, $clothingId)
     {
         $user = User::find($userId);
         if (!$user) {
@@ -52,7 +52,7 @@ class FavoriteController extends Controller
         }
     }
 
-    public function destroy(Request $request, $userId, $clothingId)
+    public function destroy($userId, $clothingId)
     {
         $user = User::find($userId);
         if (!$user) {
